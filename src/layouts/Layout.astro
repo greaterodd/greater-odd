@@ -1,10 +1,14 @@
 ---
 import '../styles/global.css';
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title = 'Greater Odd — Independent Innovation Lab · LatAm',
+	description = 'Greater Odd is an independent innovation lab from Latin America. We turn ideas into extraordinary experiences — software, web, AI-assisted solutions, and CLI tooling that push limits.',
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +16,80 @@ const { title } = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-    body { font-family: 'Inter', sans-serif; }
-    /* ... and the rest of the animation styles ... */
-</style>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <script is:inline>
+        document.documentElement.classList.add('js');
+    </script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body>
+    <div class="frame" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="rail rail-l" aria-hidden="true">Greater Odd · Innovation Lab · Latam</div>
+    <div class="rail rail-r" aria-hidden="true">Pushing Limits · Since 2024</div>
     <slot />
+
+    <script>
+        (function () {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const reveals = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window && !reduceMotion) {
+                const io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('is-in');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+                reveals.forEach(function (el) { io.observe(el); });
+            } else {
+                reveals.forEach(function (el) { el.classList.add('is-in'); });
+            }
+
+            const tabs = document.querySelectorAll('.term-tab');
+            const panes = {};
+            document.querySelectorAll('[data-term-pane]').forEach(function (p) { panes[p.getAttribute('data-term-pane')] = p; });
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== tab.getAttribute('data-term-tab'); });
+                });
+            });
+
+            const copyBtn = document.querySelector('[data-term-copy]');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    const active = document.querySelector('.term-tab.active');
+                    const pane = panes[active ? active.getAttribute('data-term-tab') : 'status'];
+                    const lines = pane.querySelectorAll('.term-line');
+                    const parts = [];
+                    lines.forEach(function (line) {
+                        const cmd = line.querySelector('.cmd');
+                        parts.push(cmd ? cmd.textContent.replace(/\u00a0/g, ' ') : '');
+                    });
+                    const text = parts.join('\n');
+                    function done() {
+                        copyBtn.classList.add('done');
+                        copyBtn.innerHTML = 'Copied';
+                        setTimeout(function () { copyBtn.classList.remove('done'); copyBtn.innerHTML = 'Copy'; }, 1600);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, done);
+                    } else {
+                        const ta = document.createElement('textarea');
+                        ta.value = text; document.body.appendChild(ta); ta.select();
+                        try { document.execCommand('copy'); } catch (e) {}
+                        document.body.removeChild(ta); done();
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

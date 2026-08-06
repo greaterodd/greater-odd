@@ -1,28 +1,51 @@
 ---
 
 ---
-<main class="flex flex-col items-center justify-center min-h-screen px-8 relative">
-    <div class="text-center max-w-4xl">
-        <h1 class="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight fade-in-title">
-            Greater Odd
-        </h1>
-        <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed fade-in-subtitle">
-            Transforming ideas into extraordinary experiences
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-buttons">
-            <button class="bg-gray-900 text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
-                Discover Our Work
-            </button>
-            <button class="text-gray-700 px-8 py-3 text-sm font-medium hover:text-gray-900 transition-colors">
-                Learn More
-            </button>
-        </div>
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow hero-eyebrow reveal"><span class="mark"></span>Independent Innovation Lab · LatAm</p>
+    <h1 class="display reveal">
+      <span class="l">Transforming</span>
+      <span class="l">Ideas Into</span>
+      <span class="l">Extraordinary</span>
+      <span class="l">Experiences</span>
+    </h1>
+    <p class="lead hero-lead reveal">We specialize in turning complex challenges into elegant solutions through a unique blend of creativity, technology, and strategic thinking.</p>
+    <p class="hero-sub reveal">Software · Web · AI-assisted solutions · CLIs — <b>we push limits.</b></p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary btn-arrow" href="mailto:contact@greaterodd.com">Start a Project
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#work">See What We Do</a>
     </div>
 
-    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-        <svg class="w-6 h-6 text-gray-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+    <div class="terminal reveal" id="terminal">
+      <div class="term-label">
+        <div style="display:flex;align-items:center;">
+          <div class="term-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="term-tabs" role="tablist" aria-label="Lab status">
+            <button class="term-tab active" role="tab" aria-selected="true" data-term-tab="status">Status</button>
+            <button class="term-tab" role="tab" aria-selected="false" data-term-tab="contact">Contact</button>
+          </div>
+        </div>
+        <button class="term-copy" type="button" data-term-copy>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="0"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="term-body" data-term-pane="status">
+        <div class="term-line"><span class="p">→</span><span class="cmd">GREATER ODD — innovation lab</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">origin&nbsp;&nbsp;&nbsp;&nbsp;latam · everywhere</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">stack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software · web · ai · cli</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">since&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">status&nbsp;&nbsp;&nbsp;&nbsp;shipping</span></div>
+      </div>
+      <div class="term-body" data-term-pane="contact" hidden>
+        <div class="term-line"><span class="p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contact@greaterodd.com</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+58 (412) 934 8601</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;everywhere</span></div>
+      </div>
     </div>
-</main>
+  </div>
+</section>

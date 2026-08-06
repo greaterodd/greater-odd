@@ -1,5 +1,5 @@
 ---
-
+import { CONTACT } from '../data/contact';
 ---
 <header class="nav">
   <div class="wrap nav-in">
@@ -11,7 +11,7 @@
     <a href="#top" class="nav-word">Greater <em>Odd</em></a>
     <nav class="nav-right" aria-label="Secondary">
       <a href="#contact">Contact</a>
-      <a href="mailto:contact@greaterodd.com" class="is-cta always">Start a Project</a>
+      <a href={CONTACT.emailHref} class="is-cta always">Start a Project</a>
     </nav>
   </div>
 </header>

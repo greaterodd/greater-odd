@@ -1,19 +1,21 @@
 ---
-
+import { CONTACT } from '../data/contact';
+import ArrowIcon from './ArrowIcon.astro';
 ---
 <section class="sec cta" id="contact">
     <div class="wrap cta-in reveal">
+      <span class="stamp">GO·06</span>
       <p class="eyebrow"><span class="mark"></span>Get in Touch</p>
       <h2 class="sec-title">Let's Build Something Odd</h2>
       <p>Whether you have a specific project in mind or just want to explore possibilities, we're here to listen and help you navigate the path forward.</p>
       <div class="cta-channels">
-        <a href="mailto:contact@greaterodd.com">contact@greaterodd.com</a>
-        <a href="tel:+584129348601">+58 (412) 934 8601</a>
-        <span>Everywhere</span>
+        <a href={CONTACT.emailHref}>{CONTACT.email}</a>
+        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+        <span>{CONTACT.location}</span>
       </div>
       <div class="cta-actions">
-        <a class="btn btn-primary btn-arrow" href="mailto:contact@greaterodd.com">Start a Project
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+        <a class="btn btn-primary btn-arrow" href={CONTACT.emailHref}>Start a Project
+          <ArrowIcon />
         </a>
       </div>
     </div>

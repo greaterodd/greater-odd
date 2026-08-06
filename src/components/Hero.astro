@@ -1,21 +1,23 @@
 ---
-
+import { CONTACT } from '../data/contact';
+import ArrowIcon from './ArrowIcon.astro';
 ---
 <section class="hero">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-in">
+    <span class="stamp">GO·01</span>
     <p class="eyebrow hero-eyebrow reveal"><span class="mark"></span>Independent Innovation Lab · LatAm</p>
     <h1 class="display reveal">
-      <span class="l">Transforming</span>
-      <span class="l">Ideas Into</span>
-      <span class="l">Extraordinary</span>
-      <span class="l">Experiences</span>
+      <span class="hero-line">Transforming</span>
+      <span class="hero-line">Ideas Into</span>
+      <span class="hero-line">Extraordinary</span>
+      <span class="hero-line">Experiences</span>
     </h1>
     <p class="lead hero-lead reveal">We specialize in turning complex challenges into elegant solutions through a unique blend of creativity, technology, and strategic thinking.</p>
     <p class="hero-sub reveal">Software · Web · AI-assisted solutions · CLIs — <b>we push limits.</b></p>
     <div class="hero-actions reveal">
-      <a class="btn btn-primary btn-arrow" href="mailto:contact@greaterodd.com">Start a Project
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+      <a class="btn btn-primary btn-arrow" href={CONTACT.emailHref}>Start a Project
+        <ArrowIcon />
       </a>
       <a class="btn btn-ghost" href="#work">See What We Do</a>
     </div>
@@ -31,21 +33,89 @@
         </div>
         <button class="term-copy" type="button" data-term-copy>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="0"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Copy
+          <span data-term-copy-label>Copy</span>
         </button>
       </div>
-      <div class="term-body" data-term-pane="status" id="pane-status" role="tabpanel" aria-label="Lab status">
+      <div class="term-body" data-term-pane="status" id="pane-status" role="tabpanel" aria-label="Lab status" aria-hidden="false">
         <div class="term-line"><span class="p">→</span><span class="cmd">GREATER ODD — innovation lab</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">origin&nbsp;&nbsp;&nbsp;&nbsp;latam · everywhere</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">stack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software · web · ai · cli</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">since&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">status&nbsp;&nbsp;&nbsp;&nbsp;shipping</span></div>
       </div>
-      <div class="term-body" data-term-pane="contact" id="pane-contact" role="tabpanel" aria-label="Contact details" hidden>
-        <div class="term-line"><span class="p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contact@greaterodd.com</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+58 (412) 934 8601</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;everywhere</span></div>
+      <div class="term-body" data-term-pane="contact" id="pane-contact" role="tabpanel" aria-label="Contact details" hidden aria-hidden="true">
+        <div class="term-line"><span class="p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.email}</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.phone}</span></div>
+        <div class="term-line"><span class="p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;{CONTACT.locationTerminal}</span></div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const tabs = document.querySelectorAll('.term-tab');
+  const panes = {};
+  document.querySelectorAll('[data-term-pane]').forEach(function (p) { panes[p.getAttribute('data-term-pane')] = p; });
+  function activate(tab) {
+    tabs.forEach(function (t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    Object.keys(panes).forEach(function (k) {
+      const on = k === tab.getAttribute('data-term-tab');
+      panes[k].hidden = !on;
+      panes[k].setAttribute('aria-hidden', String(!on));
+    });
+  }
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener('click', function () { activate(tab); });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const dir = e.key === 'ArrowRight' ? 1 : -1;
+      const next = tabs[(index + dir + tabs.length) % tabs.length];
+      e.preventDefault();
+      next.focus();
+      activate(next);
+    });
+  });
+
+  const copyBtn = document.querySelector('[data-term-copy]');
+  if (copyBtn) {
+    const copyLabel = copyBtn.querySelector('[data-term-copy-label]');
+    copyBtn.addEventListener('click', function () {
+      const active = document.querySelector('.term-tab.active');
+      const pane = panes[active ? active.getAttribute('data-term-tab') : 'status'];
+      const lines = pane.querySelectorAll('.term-line');
+      const parts = [];
+      lines.forEach(function (line) {
+        const cmd = line.querySelector('.cmd');
+        parts.push(cmd ? cmd.textContent.replace(/\u00a0/g, ' ') : '');
+      });
+      const text = parts.join('\n');
+      function done() {
+        copyBtn.classList.add('done');
+        copyLabel.textContent = 'Copied';
+        setTimeout(function () {
+          copyBtn.classList.remove('done');
+          copyLabel.textContent = 'Copy';
+        }, 1600);
+      }
+      function legacyCopy() {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { legacyCopy(); done(); });
+      } else {
+        legacyCopy();
+        done();
+      }
+    });
+  }
+</script>

@@ -19,8 +19,8 @@ const {
     <meta name="description" content={description} />
     <meta name="theme-color" content="oklch(0.42 0.20 258)" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Greater Odd — Independent Innovation Lab · LatAm" />
-    <meta property="og:description" content="An independent innovation lab from Latin America. Software, web, AI-assisted solutions, and CLI tooling that push limits." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -53,55 +53,6 @@ const {
                 reveals.forEach(function (el) { io.observe(el); });
             } else {
                 reveals.forEach(function (el) { el.classList.add('is-in'); });
-            }
-
-            const tabs = document.querySelectorAll('.term-tab');
-            const panes = {};
-            document.querySelectorAll('[data-term-pane]').forEach(function (p) { panes[p.getAttribute('data-term-pane')] = p; });
-            function activate(tab) {
-                tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-                tab.classList.add('active');
-                tab.setAttribute('aria-selected', 'true');
-                Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== tab.getAttribute('data-term-tab'); });
-            }
-            tabs.forEach(function (tab, index) {
-                tab.addEventListener('click', function () { activate(tab); });
-                tab.addEventListener('keydown', function (e) {
-                    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-                    const dir = e.key === 'ArrowRight' ? 1 : -1;
-                    const next = tabs[(index + dir + tabs.length) % tabs.length];
-                    e.preventDefault();
-                    next.focus();
-                    activate(next);
-                });
-            });
-
-            const copyBtn = document.querySelector('[data-term-copy]');
-            if (copyBtn) {
-                copyBtn.addEventListener('click', function () {
-                    const active = document.querySelector('.term-tab.active');
-                    const pane = panes[active ? active.getAttribute('data-term-tab') : 'status'];
-                    const lines = pane.querySelectorAll('.term-line');
-                    const parts = [];
-                    lines.forEach(function (line) {
-                        const cmd = line.querySelector('.cmd');
-                        parts.push(cmd ? cmd.textContent.replace(/\u00a0/g, ' ') : '');
-                    });
-                    const text = parts.join('\n');
-                    function done() {
-                        copyBtn.classList.add('done');
-                        copyBtn.innerHTML = 'Copied';
-                        setTimeout(function () { copyBtn.classList.remove('done'); copyBtn.innerHTML = 'Copy'; }, 1600);
-                    }
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(text).then(done, done);
-                    } else {
-                        const ta = document.createElement('textarea');
-                        ta.value = text; document.body.appendChild(ta); ta.select();
-                        try { document.execCommand('copy'); } catch (e) {}
-                        document.body.removeChild(ta); done();
-                    }
-                });
             }
         })();
     </script>

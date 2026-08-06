@@ -1,15 +1,16 @@
 ---
-
+import { CONTACT } from '../data/contact';
+import ArrowIcon from './ArrowIcon.astro';
 ---
 
 <section class="sec work" id="work">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="code">GO·02</span>
+        <span class="stamp">GO·02</span>
         <div>
           <p class="eyebrow"><span class="mark"></span>Work</p>
-          <h2 class="sec-title" style="margin-top:16px">What We Do</h2>
-          <p class="sec-note" style="margin-top:14px">Two rooms, one lab: build things that work, then break the rules to find what's next.</p>
+          <h2 class="sec-title">What We Do</h2>
+          <p class="sec-note">Two rooms, one lab: build things that work, then break the rules to find what's next.</p>
         </div>
       </div>
       <div class="work-grid">
@@ -24,7 +25,7 @@
             <span class="chip"><b>Performance Optimization</b></span>
           </div>
           <a class="btn btn-ghost btn-arrow" href="#capabilities">Explore Capabilities
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+            <ArrowIcon />
           </a>
         </article>
         <article class="work-card reveal">
@@ -38,7 +39,7 @@
             <span class="chip"><b>R&amp;D Projects</b></span>
           </div>
           <a class="btn btn-ghost btn-arrow" href="#contact">Bring Us An Idea
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+            <ArrowIcon />
           </a>
         </article>
         <article class="work-card reveal">
@@ -46,12 +47,12 @@
           <h3 class="work-name">Reach Us</h3>
           <p class="body">A specific project in mind, or just exploring possibilities — we're here to listen and help you navigate the path forward.</p>
           <ul class="work-contact">
-            <li><b>Email</b> — contact@greaterodd.com</li>
-            <li><b>Phone</b> — +58 (412) 934 8601</li>
-            <li><b>Location</b> — Everywhere</li>
+            <li><b>Email</b> — {CONTACT.email}</li>
+            <li><b>Phone</b> — {CONTACT.phone}</li>
+            <li><b>Location</b> — {CONTACT.location}</li>
           </ul>
-          <a class="btn btn-ghost btn-arrow" href="mailto:contact@greaterodd.com">Email Us
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+          <a class="btn btn-ghost btn-arrow" href={CONTACT.emailHref}>Email Us
+            <ArrowIcon />
           </a>
         </article>
       </div>

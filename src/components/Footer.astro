@@ -1,5 +1,5 @@
 ---
-
+import { CONTACT } from '../data/contact';
 ---
 <footer class="footer">
     <div class="wrap footer-top">
@@ -23,9 +23,9 @@
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <a href="mailto:contact@greaterodd.com">contact@greaterodd.com</a>
-        <a href="tel:+584129348601">+58 (412) 934 8601</a>
-        <span>Everywhere</span>
+        <a href={CONTACT.emailHref}>{CONTACT.email}</a>
+        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+        <span>{CONTACT.location}</span>
       </div>
     </div>
     <div class="wrap footer-meta">

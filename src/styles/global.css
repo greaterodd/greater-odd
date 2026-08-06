@@ -103,12 +103,12 @@
 }
 
 @utility chip {
-  border: 1px solid var(--color-line-ink);
+  border: 1px solid var(--chip-border, var(--color-line-ink));
   padding: 7px 10px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: var(--color-ink-soft);
+  color: var(--chip-color, var(--color-ink-soft));
 }
 
 @utility term-line {
@@ -139,6 +139,11 @@
   .js .reveal { transform: translateY(22px); }
   .js .hero .ent { transform: translateY(24px); }
   .js .reveal.is-in, .js .hero .ent.is-in { opacity: 1; transform: none; }
+
+  .chip-on-dark {
+    --chip-border: var(--color-line-strong);
+    --chip-color: var(--color-fg);
+  }
 
   .term-copy.copied { color: var(--color-blue); border-color: var(--color-blue); }
 

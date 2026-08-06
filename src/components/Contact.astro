@@ -2,19 +2,19 @@
 import { CONTACT } from '../data/contact';
 import ArrowIcon from './ArrowIcon.astro';
 ---
-<section class="sec cta" id="contact">
-    <div class="wrap cta-in reveal">
-      <span class="stamp">GO·06</span>
-      <p class="eyebrow"><span class="mark"></span>Get in Touch</p>
-      <h2 class="sec-title">Let's Build Something Odd</h2>
-      <p>Whether you have a specific project in mind or just want to explore possibilities, we're here to listen and help you navigate the path forward.</p>
-      <div class="cta-channels">
-        <a href={CONTACT.emailHref}>{CONTACT.email}</a>
-        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
-        <span>{CONTACT.location}</span>
+<section class="overflow-hidden border-t border-line py-[clamp(80px,12vh,150px)] text-center" id="contact">
+    <div class="wrap reveal flex flex-col items-center gap-[26px]">
+      <span class="stamp mb-[22px] text-fg-dim">GO·06</span>
+      <p class="eyebrow text-fg"><span class="mark bg-fg"></span>Get in Touch</p>
+      <h2 class="sec-title max-w-[16ch]">Let's Build Something Odd</h2>
+      <p class="max-w-[56ch] text-fg-dim">Whether you have a specific project in mind or just want to explore possibilities, we're here to listen and help you navigate the path forward.</p>
+      <div class="flex flex-wrap justify-center gap-[14px]">
+        <a class="border border-line-strong px-4 py-3 font-mono text-[13px] font-bold uppercase tracking-[0.12em] text-fg transition-colors duration-control ease-brand hover:border-fg hover:bg-white/[0.06]" href={CONTACT.emailHref}>{CONTACT.email}</a>
+        <a class="border border-line-strong px-4 py-3 font-mono text-[13px] font-bold uppercase tracking-[0.12em] text-fg transition-colors duration-control ease-brand hover:border-fg hover:bg-white/[0.06]" href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+        <span class="border border-line-strong px-4 py-3 font-mono text-[13px] font-bold uppercase tracking-[0.12em] text-fg">{CONTACT.location}</span>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-primary btn-arrow" href={CONTACT.emailHref}>Start a Project
+      <div class="flex flex-wrap justify-center gap-4">
+        <a class="group btn border-transparent bg-paper text-ink hover:-translate-y-px hover:bg-[oklch(0.985_0.012_95)] motion-reduce:hover:translate-y-0" href={CONTACT.emailHref}>Start a Project
           <ArrowIcon />
         </a>
       </div>

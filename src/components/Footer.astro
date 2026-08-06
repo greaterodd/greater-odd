@@ -1,39 +1,39 @@
 ---
 import { CONTACT } from '../data/contact';
 ---
-<footer class="footer">
-    <div class="wrap footer-top">
-      <div class="footer-brand">
-        <p class="foot-word">Greater Odd</p>
-        <p>An independent innovation lab from Latin America. We turn ideas into extraordinary experiences.</p>
+<footer class="relative overflow-hidden border-t border-line">
+    <div class="wrap grid grid-cols-[2fr_1fr_1fr_1fr] gap-[clamp(28px,4vw,60px)] py-[clamp(48px,7vh,80px)] max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
+      <div>
+        <p class="font-display text-2xl uppercase tracking-[0.08em]">Greater Odd</p>
+        <p class="mt-4 max-w-[34ch] text-[13px] text-fg-dim">An independent innovation lab from Latin America. We turn ideas into extraordinary experiences.</p>
       </div>
-      <div class="foot-col">
-        <h4>Studio</h4>
-        <a href="#work">Work</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#method">Method</a>
-        <a href="#contact">Contact</a>
+      <div>
+        <h4 class="mb-[18px] font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-fg-dim">Studio</h4>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#work">Work</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#capabilities">Capabilities</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#method">Method</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#contact">Contact</a>
       </div>
-      <div class="foot-col">
-        <h4>Capabilities</h4>
-        <a href="#capabilities">Software</a>
-        <a href="#capabilities">Web</a>
-        <a href="#capabilities">AI</a>
-        <a href="#capabilities">CLI</a>
+      <div>
+        <h4 class="mb-[18px] font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-fg-dim">Capabilities</h4>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#capabilities">Software</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#capabilities">Web</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#capabilities">AI</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href="#capabilities">CLI</a>
       </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <a href={CONTACT.emailHref}>{CONTACT.email}</a>
-        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
-        <span>{CONTACT.location}</span>
+      <div>
+        <h4 class="mb-[18px] font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-fg-dim">Contact</h4>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href={CONTACT.emailHref}>{CONTACT.email}</a>
+        <a class="block py-1.5 text-[13px] text-fg-dim transition-colors duration-hover ease-brand hover:text-fg" href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+        <span class="block py-1.5 text-[13px] text-fg-dim">{CONTACT.location}</span>
       </div>
     </div>
-    <div class="wrap footer-meta">
+    <div class="wrap flex flex-wrap justify-between gap-5 border-t border-line py-[22px] font-mono text-[11px] uppercase tracking-[0.14em] text-fg-dim">
       <span>© 2024 Greater Odd · All rights reserved</span>
       <span>Made with passion and precision</span>
       <span>LatAm · Independent</span>
     </div>
-    <div class="ghost-wrap">
-      <div class="ghost">Greater Odd</div>
+    <div class="w-full overflow-hidden pb-[clamp(20px,4vh,40px)]">
+      <div class="pointer-events-none select-none whitespace-nowrap text-center font-display text-[clamp(56px,14vw,200px)] uppercase leading-[0.9] tracking-[0.04em] text-transparent [-webkit-text-stroke:1px_oklch(1_0_0/0.22)]">Greater Odd</div>
     </div>
   </footer>

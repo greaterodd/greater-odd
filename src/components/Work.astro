@@ -3,55 +3,55 @@ import { CONTACT } from '../data/contact';
 import ArrowIcon from './ArrowIcon.astro';
 ---
 
-<section class="sec work" id="work">
+<section class="work bg-paper py-[clamp(80px,12vh,150px)] text-ink" id="work">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="stamp">GO·02</span>
+        <span class="stamp text-ink-faint">GO·02</span>
         <div>
-          <p class="eyebrow"><span class="mark"></span>Work</p>
-          <h2 class="sec-title">What We Do</h2>
-          <p class="sec-note">Two rooms, one lab: build things that work, then break the rules to find what's next.</p>
+          <p class="eyebrow text-ink"><span class="mark bg-ink"></span>Work</p>
+          <h2 class="sec-title mt-4 max-w-[20ch]">What We Do</h2>
+          <p class="mt-[14px] max-w-[46ch] font-mono text-[13px] tracking-[0.03em] text-ink-soft">Two rooms, one lab: build things that work, then break the rules to find what's next.</p>
         </div>
       </div>
-      <div class="work-grid">
-        <article class="work-card reveal">
-          <p class="work-eyebrow">Development</p>
-          <h3 class="work-name">Build</h3>
-          <p class="body">We build robust, scalable solutions that not only work flawlessly but also provide exceptional user experiences.</p>
-          <div class="chips">
-            <span class="chip"><b>Web Applications</b></span>
-            <span class="chip"><b>Mobile Apps</b></span>
-            <span class="chip"><b>API Integration</b></span>
-            <span class="chip"><b>Performance Optimization</b></span>
+      <div class="grid grid-cols-3 gap-[clamp(20px,2.4vw,36px)] max-[900px]:grid-cols-1">
+        <article class="reveal relative flex min-h-[340px] flex-col gap-[22px] border border-line-ink bg-paper-deep p-[clamp(28px,3.5vw,46px)] transition-[transform,border-color] duration-control ease-brand hover:-translate-y-0.5 hover:border-ink motion-reduce:hover:translate-y-0">
+          <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue">Development</p>
+          <h3 class="font-display text-[clamp(30px,3vw,42px)] uppercase leading-none tracking-[0.02em]">Build</h3>
+          <p class="text-sm leading-[1.6] text-ink-soft">We build robust, scalable solutions that not only work flawlessly but also provide exceptional user experiences.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip"><b class="text-ink">Web Applications</b></span>
+            <span class="chip"><b class="text-ink">Mobile Apps</b></span>
+            <span class="chip"><b class="text-ink">API Integration</b></span>
+            <span class="chip"><b class="text-ink">Performance Optimization</b></span>
           </div>
-          <a class="btn btn-ghost btn-arrow" href="#capabilities">Explore Capabilities
+          <a class="group btn mt-auto self-start border-line-ink bg-transparent text-ink hover:-translate-y-px hover:border-ink hover:bg-ink/5 motion-reduce:hover:translate-y-0" href="#capabilities">Explore Capabilities
             <ArrowIcon />
           </a>
         </article>
-        <article class="work-card reveal">
-          <p class="work-eyebrow">Innovation Lab</p>
-          <h3 class="work-name">Push</h3>
-          <p class="body">Our experimental playground where we explore emerging technologies and push the boundaries of what's possible.</p>
-          <div class="chips">
-            <span class="chip"><b>Prototype Development</b></span>
-            <span class="chip"><b>AI Integration</b></span>
-            <span class="chip"><b>Emerging Tech</b></span>
-            <span class="chip"><b>R&amp;D Projects</b></span>
+        <article class="reveal delay-[70ms] relative flex min-h-[340px] flex-col gap-[22px] border border-line-ink bg-paper-deep p-[clamp(28px,3.5vw,46px)] transition-[transform,border-color] duration-control ease-brand hover:-translate-y-0.5 hover:border-ink motion-reduce:hover:translate-y-0">
+          <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue">Innovation Lab</p>
+          <h3 class="font-display text-[clamp(30px,3vw,42px)] uppercase leading-none tracking-[0.02em]">Push</h3>
+          <p class="text-sm leading-[1.6] text-ink-soft">Our experimental playground where we explore emerging technologies and push the boundaries of what's possible.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip"><b class="text-ink">Prototype Development</b></span>
+            <span class="chip"><b class="text-ink">AI Integration</b></span>
+            <span class="chip"><b class="text-ink">Emerging Tech</b></span>
+            <span class="chip"><b class="text-ink">R&amp;D Projects</b></span>
           </div>
-          <a class="btn btn-ghost btn-arrow" href="#contact">Bring Us An Idea
+          <a class="group btn mt-auto self-start border-line-ink bg-transparent text-ink hover:-translate-y-px hover:border-ink hover:bg-ink/5 motion-reduce:hover:translate-y-0" href="#contact">Bring Us An Idea
             <ArrowIcon />
           </a>
         </article>
-        <article class="work-card reveal">
-          <p class="work-eyebrow">Get in Touch</p>
-          <h3 class="work-name">Reach Us</h3>
-          <p class="body">A specific project in mind, or just exploring possibilities — we're here to listen and help you navigate the path forward.</p>
-          <ul class="work-contact">
-            <li><b>Email</b> — {CONTACT.email}</li>
-            <li><b>Phone</b> — {CONTACT.phone}</li>
-            <li><b>Location</b> — {CONTACT.location}</li>
+        <article class="reveal delay-[140ms] relative flex min-h-[340px] flex-col gap-[22px] border border-line-ink bg-paper-deep p-[clamp(28px,3.5vw,46px)] transition-[transform,border-color] duration-control ease-brand hover:-translate-y-0.5 hover:border-ink motion-reduce:hover:translate-y-0">
+          <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-blue">Get in Touch</p>
+          <h3 class="font-display text-[clamp(30px,3vw,42px)] uppercase leading-none tracking-[0.02em]">Reach Us</h3>
+          <p class="text-sm leading-[1.6] text-ink-soft">A specific project in mind, or just exploring possibilities — we're here to listen and help you navigate the path forward.</p>
+          <ul class="mt-auto flex list-none flex-col gap-3">
+            <li class="text-[13px] tracking-[0.03em] text-ink-soft"><b class="font-bold text-ink">Email</b> — {CONTACT.email}</li>
+            <li class="text-[13px] tracking-[0.03em] text-ink-soft"><b class="font-bold text-ink">Phone</b> — {CONTACT.phone}</li>
+            <li class="text-[13px] tracking-[0.03em] text-ink-soft"><b class="font-bold text-ink">Location</b> — {CONTACT.location}</li>
           </ul>
-          <a class="btn btn-ghost btn-arrow" href={CONTACT.emailHref}>Email Us
+          <a class="group btn mt-auto self-start border-line-ink bg-transparent text-ink hover:-translate-y-px hover:border-ink hover:bg-ink/5 motion-reduce:hover:translate-y-0" href={CONTACT.emailHref}>Email Us
             <ArrowIcon />
           </a>
         </article>

@@ -11,7 +11,7 @@ const {
 } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth motion-reduce:scroll-auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +28,15 @@ const {
         document.documentElement.classList.add('js');
     </script>
 </head>
-<body>
-    <a class="skip" href="#top">Skip to content</a>
-    <div class="frame" aria-hidden="true"></div>
+<body class="overflow-x-hidden bg-blue font-mono text-base leading-[1.55] text-fg antialiased">
+    <a class="fixed left-[-9999px] top-3 z-[300] bg-paper px-[18px] py-[14px] font-mono text-xs font-bold leading-none uppercase tracking-[0.14em] text-ink focus:left-3" href="#top">Skip to content</a>
+    <div class="pointer-events-none fixed inset-3 z-[220] border border-white/10" aria-hidden="true">
+        <i class="absolute -left-px -top-px block h-[22px] w-[22px] border-l border-t border-white/35"></i>
+        <i class="absolute -bottom-px -right-px block h-[22px] w-[22px] border-b border-r border-white/35"></i>
+    </div>
     <div class="grain" aria-hidden="true"></div>
-    <div class="rail rail-l" aria-hidden="true">Greater Odd · Innovation Lab · Latam</div>
-    <div class="rail rail-r" aria-hidden="true">Pushing Limits · Since 2024</div>
+    <div class="pointer-events-none fixed top-1/2 left-2.5 z-[218] hidden -translate-y-1/2 rotate-90 whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-[0.42em] text-white/[0.42] xl:block" aria-hidden="true">Greater Odd · Innovation Lab · Latam</div>
+    <div class="pointer-events-none fixed top-1/2 right-2.5 z-[218] hidden -translate-y-1/2 -rotate-90 whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-[0.42em] text-white/[0.42] xl:block" aria-hidden="true">Pushing Limits · Since 2024</div>
     <slot />
 
     <script>

@@ -2,66 +2,64 @@
 import { CONTACT } from '../data/contact';
 import ArrowIcon from './ArrowIcon.astro';
 ---
-<section class="hero">
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="wrap hero-in">
-    <span class="stamp ent d1">GO·01</span>
-    <p class="eyebrow hero-eyebrow ent d1"><span class="mark"></span>Independent Innovation Lab · LatAm</p>
-    <h1 class="display">
-      <span class="hero-line ent d2">Transforming</span>
-      <span class="hero-line ent d3">Ideas Into</span>
-      <span class="hero-line ent d4">Extraordinary</span>
-      <span class="hero-line ent d5">Experiences</span>
+<section class="hero relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 z-0 opacity-50 bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:88px_88px]" aria-hidden="true"></div>
+  <div class="wrap hero-in relative z-[1] pb-[clamp(56px,8vh,110px)] pt-[clamp(72px,10vh,140px)]">
+    <span class="stamp ent delay-[60ms] mb-[22px] text-fg-dim">GO·01</span>
+    <p class="eyebrow ent delay-[60ms] mb-[clamp(26px,4vh,42px)] text-fg"><span class="mark bg-fg"></span>Independent Innovation Lab · LatAm</p>
+    <h1 class="max-w-[16em] font-display text-[clamp(38px,7.4vw,118px)] font-normal uppercase leading-[1.08] tracking-[0.03em]">
+      <span class="hero-line ent delay-[120ms] block">Transforming</span>
+      <span class="hero-line ent delay-[180ms] block">Ideas Into</span>
+      <span class="hero-line ent delay-[240ms] block">Extraordinary</span>
+      <span class="hero-line ent delay-[300ms] block">Experiences</span>
     </h1>
-    <p class="lead hero-lead ent d6">We specialize in turning complex challenges into elegant solutions through a unique blend of creativity, technology, and strategic thinking.</p>
-    <p class="hero-sub ent d7">Software · Web · AI-assisted solutions · CLIs — <b>we push limits.</b></p>
-    <div class="hero-actions ent d8">
-      <a class="btn btn-primary btn-arrow" href={CONTACT.emailHref}>Start a Project
+    <p class="ent delay-[360ms] mt-[clamp(28px,4vh,44px)] max-w-[60ch] text-[clamp(15px,1.2vw,17px)] text-fg-dim">We specialize in turning complex challenges into elegant solutions through a unique blend of creativity, technology, and strategic thinking.</p>
+    <p class="ent delay-[420ms] mt-[18px] text-[13px] tracking-[0.03em] text-fg-dim">Software · Web · AI-assisted solutions · CLIs — <b class="border-b border-fg font-bold text-fg">we push limits.</b></p>
+    <div class="ent delay-[480ms] mt-[clamp(32px,5vh,52px)] flex flex-wrap gap-4">
+      <a class="group btn border-transparent bg-paper text-ink hover:-translate-y-px hover:bg-[oklch(0.985_0.012_95)] motion-reduce:hover:translate-y-0" href={CONTACT.emailHref}>Start a Project
         <ArrowIcon />
       </a>
-      <a class="btn btn-ghost" href="#work">See What We Do</a>
+      <a class="group btn border-line-strong bg-transparent text-fg hover:-translate-y-px hover:border-fg hover:bg-white/[0.06] motion-reduce:hover:translate-y-0" href="#work">See What We Do</a>
     </div>
 
-    <div class="terminal ent d9" id="terminal">
-      <div class="term-label">
+    <div class="ent delay-[540ms] mt-[clamp(48px,7vh,84px)] border border-white/20 bg-paper text-ink shadow-[0_30px_80px_oklch(0.2_0.09_258/0.35)]" id="terminal">
+      <div class="flex items-center justify-between border-b border-line-ink px-[18px] py-3">
         <div style="display:flex;align-items:center;">
-          <div class="term-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-          <div class="term-tabs" role="tablist" aria-label="Lab status">
-            <button class="term-tab active" role="tab" aria-selected="true" aria-controls="pane-status" data-term-tab="status">Status</button>
-            <button class="term-tab" role="tab" aria-selected="false" aria-controls="pane-contact" data-term-tab="contact">Contact</button>
+          <div class="flex gap-[7px]" aria-hidden="true"><i class="h-[9px] w-[9px] rounded-full bg-line-ink"></i><i class="h-[9px] w-[9px] rounded-full bg-line-ink"></i><i class="h-[9px] w-[9px] rounded-full bg-line-ink"></i></div>
+          <div class="ml-[14px] flex gap-1" role="tablist" aria-label="Lab status">
+            <button class="border-b-2 border-transparent bg-transparent px-3 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink-faint transition-colors duration-hover ease-brand hover:text-ink-soft aria-selected:border-blue aria-selected:text-ink" role="tab" aria-selected="true" aria-controls="pane-status" data-term-tab="status">Status</button>
+            <button class="border-b-2 border-transparent bg-transparent px-3 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink-faint transition-colors duration-hover ease-brand hover:text-ink-soft aria-selected:border-blue aria-selected:text-ink" role="tab" aria-selected="false" aria-controls="pane-contact" data-term-tab="contact">Contact</button>
           </div>
         </div>
-        <button class="term-copy" type="button" data-term-copy aria-live="polite">
+        <button class="inline-flex items-center gap-2 border border-line-ink bg-transparent px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-ink-soft transition-colors duration-hover ease-brand hover:border-ink hover:text-ink" type="button" data-term-copy aria-live="polite">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="0"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           <span data-term-copy-label>Copy</span>
         </button>
       </div>
-      <div class="term-body" data-term-pane="status" id="pane-status" role="tabpanel" aria-label="Lab status" aria-hidden="false">
-        <div class="term-line"><span class="p">→</span><span class="cmd">GREATER ODD — innovation lab</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">origin&nbsp;&nbsp;&nbsp;&nbsp;latam · everywhere</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">stack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software · web · ai · cli</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">since&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">status&nbsp;&nbsp;&nbsp;&nbsp;shipping</span></div>
+      <div class="min-h-[172px] animate-pane-in px-5 py-6 motion-reduce:animate-none" data-term-pane="status" id="pane-status" role="tabpanel" aria-label="Lab status" aria-hidden="false">
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">GREATER ODD — innovation lab</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">origin&nbsp;&nbsp;&nbsp;&nbsp;latam · everywhere</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">stack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software · web · ai · cli</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">since&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">status&nbsp;&nbsp;&nbsp;&nbsp;shipping<span class="ml-[7px] inline-block h-4 w-[9px] animate-blink bg-blue align-[-2px] motion-reduce:animate-none"></span></span></div>
       </div>
-      <div class="term-body" data-term-pane="contact" id="pane-contact" role="tabpanel" aria-label="Contact details" hidden aria-hidden="true">
-        <div class="term-line"><span class="p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.email}</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.phone}</span></div>
-        <div class="term-line"><span class="p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;{CONTACT.locationTerminal}</span></div>
+      <div class="min-h-[172px] animate-pane-in px-5 py-6 motion-reduce:animate-none" data-term-pane="contact" id="pane-contact" role="tabpanel" aria-label="Contact details" hidden aria-hidden="true">
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.email}</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{CONTACT.phone}</span></div>
+        <div class="term-line"><span class="term-p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;{CONTACT.locationTerminal}<span class="ml-[7px] inline-block h-4 w-[9px] animate-blink bg-blue align-[-2px] motion-reduce:animate-none"></span></span></div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  const tabs = document.querySelectorAll('.term-tab');
+  const tabs = document.querySelectorAll('[data-term-tab]');
   const panes = {};
   document.querySelectorAll('[data-term-pane]').forEach(function (p) { panes[p.getAttribute('data-term-pane')] = p; });
   function activate(tab) {
     tabs.forEach(function (t) {
-      t.classList.remove('active');
       t.setAttribute('aria-selected', 'false');
     });
-    tab.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
     Object.keys(panes).forEach(function (k) {
       const on = k === tab.getAttribute('data-term-tab');
@@ -85,7 +83,7 @@ import ArrowIcon from './ArrowIcon.astro';
   if (copyBtn) {
     const copyLabel = copyBtn.querySelector('[data-term-copy-label]');
     copyBtn.addEventListener('click', function () {
-      const active = document.querySelector('.term-tab.active');
+      const active = document.querySelector('[data-term-tab][aria-selected="true"]');
       const pane = panes[active ? active.getAttribute('data-term-tab') : 'status'];
       const lines = pane.querySelectorAll('.term-line');
       const parts = [];
@@ -95,10 +93,10 @@ import ArrowIcon from './ArrowIcon.astro';
       });
       const text = parts.join('\n');
       function done() {
-        copyBtn.classList.add('done');
+        copyBtn.classList.add('copied');
         copyLabel.textContent = 'Copied';
         setTimeout(function () {
-          copyBtn.classList.remove('done');
+          copyBtn.classList.remove('copied');
           copyLabel.textContent = 'Copy';
         }, 1600);
       }

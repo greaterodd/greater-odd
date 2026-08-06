@@ -1,28 +1,21 @@
 ---
 
+const items = ['Software', 'Web Applications', 'Mobile Apps', 'API Integration', 'Performance Optimization', 'AI Integration', 'CLI Tooling', 'Prototypes', 'Emerging Tech', 'R&D Projects'];
 ---
 
-<div class="ticker" aria-hidden="true">
-    <div class="ticker-track" data-ticker-track>
-      <span>Software</span><span class="sep">·</span>
-      <span>Web Applications</span><span class="sep">·</span>
-      <span>Mobile Apps</span><span class="sep">·</span>
-      <span>API Integration</span><span class="sep">·</span>
-      <span>Performance Optimization</span><span class="sep">·</span>
-      <span>AI Integration</span><span class="sep">·</span>
-      <span>CLI Tooling</span><span class="sep">·</span>
-      <span>Prototypes</span><span class="sep">·</span>
-      <span>Emerging Tech</span><span class="sep">·</span>
-      <span>R&amp;D Projects</span><span class="sep">·</span>
-      <span class="ticker-dup">Software</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">Web Applications</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">Mobile Apps</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">API Integration</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">Performance Optimization</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">AI Integration</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">CLI Tooling</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">Prototypes</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">Emerging Tech</span><span class="sep ticker-dup">·</span>
-      <span class="ticker-dup">R&amp;D Projects</span><span class="sep ticker-dup">·</span>
+<div class="overflow-hidden border-y border-line" aria-hidden="true">
+    <div class="flex w-max animate-tick hover:[animation-play-state:paused] motion-reduce:w-auto motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:animate-none" data-ticker-track>
+      {items.map((t) => (
+        <Fragment>
+          <span class="whitespace-nowrap py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-fg-dim">{t}</span>
+          <span class="whitespace-nowrap py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-fg px-[22px]">·</span>
+        </Fragment>
+      ))}
+      {items.map((t) => (
+        <Fragment>
+          <span class="motion-reduce:hidden whitespace-nowrap py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-fg-dim">{t}</span>
+          <span class="motion-reduce:hidden whitespace-nowrap py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-fg px-[22px]">·</span>
+        </Fragment>
+      ))}
     </div>
   </div>

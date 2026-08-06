@@ -17,6 +17,10 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="oklch(0.42 0.20 258)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Greater Odd — Independent Innovation Lab · LatAm" />
+    <meta property="og:description" content="An independent innovation lab from Latin America. Software, web, AI-assisted solutions, and CLI tooling that push limits." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -25,6 +29,7 @@ const {
     </script>
 </head>
 <body>
+    <a class="skip" href="#top">Skip to content</a>
     <div class="frame" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
     <div class="rail rail-l" aria-hidden="true">Greater Odd · Innovation Lab · Latam</div>
@@ -53,12 +58,21 @@ const {
             const tabs = document.querySelectorAll('.term-tab');
             const panes = {};
             document.querySelectorAll('[data-term-pane]').forEach(function (p) { panes[p.getAttribute('data-term-pane')] = p; });
-            tabs.forEach(function (tab) {
-                tab.addEventListener('click', function () {
-                    tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-                    tab.classList.add('active');
-                    tab.setAttribute('aria-selected', 'true');
-                    Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== tab.getAttribute('data-term-tab'); });
+            function activate(tab) {
+                tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== tab.getAttribute('data-term-tab'); });
+            }
+            tabs.forEach(function (tab, index) {
+                tab.addEventListener('click', function () { activate(tab); });
+                tab.addEventListener('keydown', function (e) {
+                    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                    const dir = e.key === 'ArrowRight' ? 1 : -1;
+                    const next = tabs[(index + dir + tabs.length) % tabs.length];
+                    e.preventDefault();
+                    next.focus();
+                    activate(next);
                 });
             });
 

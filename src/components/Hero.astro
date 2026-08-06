@@ -25,8 +25,8 @@
         <div style="display:flex;align-items:center;">
           <div class="term-dots" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="term-tabs" role="tablist" aria-label="Lab status">
-            <button class="term-tab active" role="tab" aria-selected="true" data-term-tab="status">Status</button>
-            <button class="term-tab" role="tab" aria-selected="false" data-term-tab="contact">Contact</button>
+            <button class="term-tab active" role="tab" aria-selected="true" aria-controls="pane-status" data-term-tab="status">Status</button>
+            <button class="term-tab" role="tab" aria-selected="false" aria-controls="pane-contact" data-term-tab="contact">Contact</button>
           </div>
         </div>
         <button class="term-copy" type="button" data-term-copy>
@@ -34,14 +34,14 @@
           Copy
         </button>
       </div>
-      <div class="term-body" data-term-pane="status">
+      <div class="term-body" data-term-pane="status" id="pane-status" role="tabpanel" aria-label="Lab status">
         <div class="term-line"><span class="p">→</span><span class="cmd">GREATER ODD — innovation lab</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">origin&nbsp;&nbsp;&nbsp;&nbsp;latam · everywhere</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">stack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software · web · ai · cli</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">since&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">status&nbsp;&nbsp;&nbsp;&nbsp;shipping</span></div>
       </div>
-      <div class="term-body" data-term-pane="contact" hidden>
+      <div class="term-body" data-term-pane="contact" id="pane-contact" role="tabpanel" aria-label="Contact details" hidden>
         <div class="term-line"><span class="p">→</span><span class="cmd">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contact@greaterodd.com</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+58 (412) 934 8601</span></div>
         <div class="term-line"><span class="p">→</span><span class="cmd">location&nbsp;&nbsp;&nbsp;everywhere</span></div>
